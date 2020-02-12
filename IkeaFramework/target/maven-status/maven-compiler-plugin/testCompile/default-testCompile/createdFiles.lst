@@ -1,0 +1,5 @@
+sig\ikea\utility\ExcelDataProvider.class
+sig\ikea\utility\BrowserFactory.class
+sig\ikea\pages\BaseClass.class
+sig\ikea\pages\LoginPage.class
+sig\ikea\testcases\LoginTestEcommerce.class
