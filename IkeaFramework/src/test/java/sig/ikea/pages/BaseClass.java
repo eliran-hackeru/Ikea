@@ -37,6 +37,7 @@ public class BaseClass {
 		BrowserFactory.quitBrowser(driver);
 	}
 	
+	//Need to update this method
 	@AfterMethod
 	public void tearDownMethod(ITestResult result)
 	{
