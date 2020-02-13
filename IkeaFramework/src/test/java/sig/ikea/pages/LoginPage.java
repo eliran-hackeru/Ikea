@@ -39,7 +39,7 @@ public class LoginPage {
 				
 	}
 	
-//	This method combines the two methods	
+//	This method combines the two methods userCredential() & clickLogin()
 	public void loginToEcommerce(String userApplication, String passwordApplication)
 	{
 		userCredential(userApplication,passwordApplication);

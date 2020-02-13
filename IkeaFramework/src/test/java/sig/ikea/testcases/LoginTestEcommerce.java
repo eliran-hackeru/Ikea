@@ -29,7 +29,7 @@ public class LoginTestEcommerce extends BaseClass {
 		
 		loginPage.clickLogin();
 		
-		BrowserFactory.waitForElementByClassName(driver,"logout");
+		Helper.waitForElementByClassName(driver,"logout");
 		
 		Helper.captureScreenshot(driver,"03_Complete");
 				

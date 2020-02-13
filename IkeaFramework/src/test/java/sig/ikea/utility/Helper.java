@@ -6,9 +6,12 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 import org.apache.commons.io.FileUtils;
+import org.openqa.selenium.By;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class Helper {
 	
@@ -41,6 +44,18 @@ public class Helper {
 		Date currentDate = new Date();
 		
 		return customFormat.format(currentDate);
+	}
+	
+	public static void waitForElementByID(WebDriver driver, String value)
+	{
+		WebDriverWait wait = new WebDriverWait(driver, 40);
+		wait.until(ExpectedConditions.elementToBeClickable(By.id(value)));
+	}
+	
+	public static void waitForElementByClassName(WebDriver driver, String className)
+	{
+		WebDriverWait wait = new WebDriverWait(driver, 40);
+		wait.until(ExpectedConditions.elementToBeClickable(By.className(className)));
 	}
 	
 	public void handleFrames() 
