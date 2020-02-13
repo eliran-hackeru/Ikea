@@ -5,6 +5,8 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
+import sig.ikea.utility.Helper;
+
 public class LoginPage {
 	
 	WebDriver driver;
@@ -22,21 +24,26 @@ public class LoginPage {
 	
 	@FindBy(xpath="//input[@value='כניסה']") WebElement loginButton;
 	
-	public void loginToEcommerce(String userApplication, String passwordApplication)
+	
+	public void userCredential(String userApplication, String passwordApplication)
 	{
 		extensionButton.click();
 		uname.sendKeys(userApplication);
 		pass.sendKeys(passwordApplication);
-		
-		try {
-			Thread.sleep(2000);
-		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		
+
+	}
+
+	public void clickLogin()
+	{
 		loginButton.click();
 				
+	}
+	
+//	This method combines the two methods	
+	public void loginToEcommerce(String userApplication, String passwordApplication)
+	{
+		userCredential(userApplication,passwordApplication);
+		clickLogin();
 	}
 
 }

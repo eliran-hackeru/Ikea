@@ -23,11 +23,13 @@ public class LoginTestEcommerce extends BaseClass {
 		
 		Helper.captureScreenshot(driver,"01_BrowserStarted");
 		
-		loginPage.loginToEcommerce(excel.getStringData("Login", 0, 0), excel.getStringData("Login", 0, 1));
+		loginPage.userCredential(excel.getStringData("Login", 0, 0), excel.getStringData("Login", 0, 1));
 		
 		Helper.captureScreenshot(driver,"02_InsertUserDetails");
 		
-		BrowserFactory.waitForNextPageByClassName(driver,"logout");
+		loginPage.clickLogin();
+		
+		BrowserFactory.waitForElementByClassName(driver,"logout");
 		
 		Helper.captureScreenshot(driver,"03_Complete");
 				

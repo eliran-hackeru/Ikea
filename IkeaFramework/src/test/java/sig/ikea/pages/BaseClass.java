@@ -37,12 +37,11 @@ public class BaseClass {
 		BrowserFactory.quitBrowser(driver);
 	}
 	
-	//Need to update this method
 	@AfterMethod
 	public void tearDownMethod(ITestResult result)
 	{
 		
-		if (result.getStatus()==ITestResult.FAILURE);
+		if (ITestResult.FAILURE==result.getStatus())
 		{
 			Helper.captureScreenshot(driver, "Failure_");
 		}

@@ -68,7 +68,7 @@ public class BrowserFactory {
 		wait.until(ExpectedConditions.elementToBeClickable(By.id(value)));
 	}
 	
-	public static void waitForNextPageByClassName(WebDriver driver, String className)
+	public static void waitForElementByClassName(WebDriver driver, String className)
 	{
 		WebDriverWait wait = new WebDriverWait(driver, 40);
 		wait.until(ExpectedConditions.elementToBeClickable(By.className(className)));
