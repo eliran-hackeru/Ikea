@@ -10,6 +10,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
@@ -56,6 +57,19 @@ public class Helper {
 	{
 		WebDriverWait wait = new WebDriverWait(driver, 40);
 		wait.until(ExpectedConditions.elementToBeClickable(By.className(className)));
+	}
+	
+//	Need to combine with assertion.
+	public boolean checkForElement(WebDriver driver, String value)
+	{
+		if (driver.findElements(By.id(value)).size() != 0)
+		{
+			return true;
+		}
+		else
+		{
+			return false;
+		}
 	}
 	
 	public void handleFrames() 
