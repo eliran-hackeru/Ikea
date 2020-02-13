@@ -1,6 +1,9 @@
 package sig.ikea.utility;
 
 import java.io.File;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.OutputType;
@@ -19,7 +22,7 @@ public class Helper {
 			
 			File src = ts.getScreenshotAs(OutputType.FILE);
 			
-			File DestFile=new File("./Screenshots/"+screenshotName+"_LoginTest.png");
+			File DestFile=new File("./Screenshots/"+screenshotName+"_"+getCurrentDateTime()+"_LoginTest.png");
 			
 			FileUtils.copyFile(src,DestFile);
 			
@@ -29,6 +32,15 @@ public class Helper {
 			
 			System.out.println("Exception while capturing screenshot "+e.getMessage());
 		} 
+	}
+	
+	public static String getCurrentDateTime()
+	{
+		DateFormat customFormat = new SimpleDateFormat("yyyy-MM-dd HH_mm_ss");
+		
+		Date currentDate = new Date();
+		
+		return customFormat.format(currentDate);
 	}
 	
 	public void handleFrames() 

@@ -2,24 +2,24 @@
 <testng-results ignored="0" total="1" passed="1" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2020-02-12T12:34:44 IST" name="Default suite" finished-at="2020-02-12T12:35:01 IST" duration-ms="17612">
+  <suite started-at="2020-02-13T14:21:33 IST" name="Default suite" finished-at="2020-02-13T14:21:49 IST" duration-ms="16512">
     <groups>
     </groups>
-    <test started-at="2020-02-12T12:34:44 IST" name="Default test" finished-at="2020-02-12T12:35:01 IST" duration-ms="17612">
+    <test started-at="2020-02-13T14:21:33 IST" name="Default test" finished-at="2020-02-13T14:21:49 IST" duration-ms="16512">
       <class name="sig.ikea.testcases.LoginTestEcommerce">
-        <test-method is-config="true" signature="setUpSuite()[pri:0, instance:sig.ikea.testcases.LoginTestEcommerce@186f8716]" started-at="2020-02-12T12:34:43 IST" name="setUpSuite" finished-at="2020-02-12T12:34:44 IST" duration-ms="859" status="PASS">
+        <test-method is-config="true" signature="setUpSuite()[pri:0, instance:sig.ikea.testcases.LoginTestEcommerce@186f8716]" started-at="2020-02-13T14:21:32 IST" name="setUpSuite" finished-at="2020-02-13T14:21:33 IST" duration-ms="829" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUpSuite -->
-        <test-method is-config="true" signature="setupApplication()[pri:0, instance:sig.ikea.testcases.LoginTestEcommerce@186f8716]" started-at="2020-02-12T12:34:44 IST" name="setupApplication" finished-at="2020-02-12T12:34:54 IST" duration-ms="10810" status="PASS">
+        <test-method is-config="true" signature="setupApplication()[pri:0, instance:sig.ikea.testcases.LoginTestEcommerce@186f8716]" started-at="2020-02-13T14:21:33 IST" name="setupApplication" finished-at="2020-02-13T14:21:43 IST" duration-ms="10249" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setupApplication -->
-        <test-method signature="loginApp()[pri:0, instance:sig.ikea.testcases.LoginTestEcommerce@186f8716]" started-at="2020-02-12T12:34:54 IST" name="loginApp" finished-at="2020-02-12T12:35:00 IST" duration-ms="5329" status="PASS">
+        <test-method signature="loginApp()[pri:0, instance:sig.ikea.testcases.LoginTestEcommerce@186f8716]" started-at="2020-02-13T14:21:43 IST" name="loginApp" finished-at="2020-02-13T14:21:48 IST" duration-ms="4916" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- loginApp -->
-        <test-method is-config="true" signature="tearDownMethod(org.testng.ITestResult)[pri:0, instance:sig.ikea.testcases.LoginTestEcommerce@186f8716]" started-at="2020-02-12T12:35:00 IST" name="tearDownMethod" finished-at="2020-02-12T12:35:01 IST" duration-ms="726" status="PASS">
+        <test-method is-config="true" signature="tearDownMethod(org.testng.ITestResult)[pri:0, instance:sig.ikea.testcases.LoginTestEcommerce@186f8716]" started-at="2020-02-13T14:21:48 IST" name="tearDownMethod" finished-at="2020-02-13T14:21:49 IST" duration-ms="634" status="PASS">
           <params>
             <param index="0">
               <value>
@@ -30,7 +30,7 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDownMethod -->
-        <test-method is-config="true" signature="tearDown()[pri:0, instance:sig.ikea.testcases.LoginTestEcommerce@186f8716]" started-at="2020-02-12T12:35:01 IST" name="tearDown" finished-at="2020-02-12T12:35:01 IST" duration-ms="702" status="PASS">
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:sig.ikea.testcases.LoginTestEcommerce@186f8716]" started-at="2020-02-13T14:21:49 IST" name="tearDown" finished-at="2020-02-13T14:21:49 IST" duration-ms="669" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDown -->
