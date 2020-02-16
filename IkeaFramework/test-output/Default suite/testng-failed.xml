@@ -3,15 +3,15 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="sig.ikea.testcases.LoginTestEcommerce">
+      <class name="sig.ikea.testcases.ProductTestEcommerce">
         <methods>
-          <include name="loginApp"/>
+          <include name="searchtApp"/>
           <include name="setupApplication"/>
           <include name="tearDown"/>
           <include name="tearDownMethod"/>
           <include name="setUpSuite"/>
         </methods>
-      </class> <!-- sig.ikea.testcases.LoginTestEcommerce -->
+      </class> <!-- sig.ikea.testcases.ProductTestEcommerce -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

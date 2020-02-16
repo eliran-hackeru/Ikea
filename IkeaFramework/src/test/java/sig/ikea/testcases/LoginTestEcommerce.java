@@ -1,21 +1,13 @@
 package sig.ikea.testcases;
 
 import org.testng.annotations.Test;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
-import org.testng.annotations.AfterClass;
-import org.testng.annotations.BeforeClass;
-import org.testng.annotations.Test;
-
 import sig.ikea.pages.BaseClass;
 import sig.ikea.pages.LoginPage;
-import sig.ikea.utility.BrowserFactory;
-import sig.ikea.utility.ExcelDataProvider;
 import sig.ikea.utility.Helper;
 
-public class LoginTestEcommerce extends BaseClass {
-	
-	
+public class LoginTestEcommerce extends BaseClass
+{
 	
 	@Test
 	public void loginApp()
