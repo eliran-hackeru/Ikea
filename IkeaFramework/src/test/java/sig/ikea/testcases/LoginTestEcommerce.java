@@ -1,5 +1,6 @@
 package sig.ikea.testcases;
 
+import org.testng.annotations.Test;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
 import org.testng.annotations.AfterClass;
@@ -29,10 +30,9 @@ public class LoginTestEcommerce extends BaseClass {
 		
 		loginPage.clickLogin();
 		
-		Helper.waitForElementByClassName(driver,"logout");
+		loginPage.assertLogin();
 		
 		Helper.captureScreenshot(driver,"03_Complete");
-				
 	}
 		
 }

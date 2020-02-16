@@ -4,6 +4,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import org.testng.Assert;
 
 import sig.ikea.utility.Helper;
 
@@ -24,8 +25,9 @@ public class LoginPage {
 	
 	@FindBy(xpath="//input[@value='כניסה']") WebElement loginButton;
 	
+	@FindBy(xpath="//input[@value='יציאה']") WebElement logoutButton;
 	
-	public void userCredential(String userApplication, String passwordApplication)
+		public void userCredential(String userApplication, String passwordApplication)
 	{
 		extensionButton.click();
 		uname.sendKeys(userApplication);
@@ -36,7 +38,6 @@ public class LoginPage {
 	public void clickLogin()
 	{
 		loginButton.click();
-				
 	}
 	
 //	This method combines the two methods userCredential() & clickLogin()
@@ -45,5 +46,12 @@ public class LoginPage {
 		userCredential(userApplication,passwordApplication);
 		clickLogin();
 	}
-
+	
+//	Run this after clickLogin() to verify the test
+	public void assertLogin()
+	{
+		Assert.assertEquals(logoutButton.getAttribute("value"), "יציאה","Can't find the logout button.");
+		
+	}
+	
 }

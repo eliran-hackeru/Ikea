@@ -59,8 +59,8 @@ public class Helper {
 		wait.until(ExpectedConditions.elementToBeClickable(By.className(className)));
 	}
 	
-//	Need to combine with assertion.
-	public boolean checkForElement(WebDriver driver, String value)
+
+	public boolean checkForElementID(WebDriver driver, String value)
 	{
 		if (driver.findElements(By.id(value)).size() != 0)
 		{
