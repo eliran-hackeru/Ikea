@@ -13,14 +13,25 @@ public class ProductTestEcommerce extends BaseClass
 	@Test
 	public void searchtApp()
 	{
+		String testName = this.getClass().getSimpleName();
+		
 		ProductPage productPage = PageFactory.initElements(driver, ProductPage.class);
 		
-//		productPage.searchSKU(excel.getNumericData("Product",0, 0));
+		Helper.captureScreenshot(driver,"01_BrowserStarted",testName);
+		
+		productPage.searchSKU(excel.getNumericData("Product",0, 0));
+		
+		Helper.captureScreenshot(driver,"02_Search_SKU",testName);
 		
 		productPage.assertProductPage(excel.getNumericData("Product",0, 0), excel.getStringData("Product", 0, 1));
 		
 		productPage.checkForStock();
 		
+		Helper.captureScreenshot(driver,"03_Stock_Status",testName);
+		
+		productPage.checkForLocation();
+		
+		Helper.captureScreenshot(driver,"04_Location_Status",testName);
 	}
 
 }

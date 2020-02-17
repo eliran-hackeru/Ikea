@@ -42,13 +42,13 @@ public class ProductPage {
 	
 	@FindBy(xpath="//span[.='לחץ כאן לבדיקת מיקום המוצר בחנויות ושעות פתיחה']") WebElement location;
 	
-/*	public void searchSKU(String userSKU)
+	public void searchSKU(String userSKU)
 	{
 		searchButton.click();
 		searchButton.sendKeys(userSKU);
 		submitSearch.click();
 	}
-*/	
+	
 	public void assertProductPage(String valueSKU, String valueSeries)
 	{
 		Assert.assertEquals(SKU.getText(), valueSKU,"Can't find product code: "+SKU.getText());
@@ -75,6 +75,10 @@ public class ProductPage {
 			twiggleStock.click();
 		}
 		
+	}
+		
+	public void checkForLocation()
+	{
 		location.click();
 		
 		try {
@@ -83,6 +87,5 @@ public class ProductPage {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
 	}
 }

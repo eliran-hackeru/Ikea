@@ -43,7 +43,7 @@ public class BaseClass {
 		
 		if (ITestResult.FAILURE==result.getStatus())
 		{
-			Helper.captureScreenshot(driver, "Failure_");
+			Helper.captureScreenshot(driver, "Failure_",this.getClass().getSimpleName());
 		}
 		
 	}

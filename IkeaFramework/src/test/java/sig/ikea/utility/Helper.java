@@ -18,7 +18,7 @@ public class Helper {
 	
 	//Screenshots, alerts, frames, windows, Sync issue, javascript executor
 	
-	public static void captureScreenshot(WebDriver driver, String screenshotName) 
+	public static void captureScreenshot(WebDriver driver, String screenshotName, String testName) 
 	{
 		try 
 		{
@@ -26,7 +26,7 @@ public class Helper {
 			
 			File src = ts.getScreenshotAs(OutputType.FILE);
 			
-			File DestFile=new File("./Screenshots/"+screenshotName+"_"+getCurrentDateTime()+"_LoginTest.png");
+			File DestFile=new File("./Screenshots/"+screenshotName+"_"+getCurrentDateTime()+"_"+testName+".png");
 			
 			FileUtils.copyFile(src,DestFile);
 			
