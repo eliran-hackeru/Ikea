@@ -1,8 +1,12 @@
 package sig.ikea.pages;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.FindBys;
 import org.testng.Assert;
 
 public class ProductPage {
@@ -22,12 +26,12 @@ public class ProductPage {
 	
 	@FindBy(xpath="//span[@class='prod_series ng-binding']") WebElement series;
 	
-	@FindBy(xpath="//span[@class='select2-chosen ng-binding']") WebElement stockInfo;
+	@FindBy(xpath="//span[@class='select2-chosen ng-binding']") WebElement openStock;
 	
-	@FindBy(xpath="//span[@ng-bind-html='current_store.status_msg']") WebElement stockStatus;
+	@FindBy(xpath="/html/body/div[3]/div[2]/div[2]/div/div[1]/div[2]/div/div[6]/div/a/span[2]/div/span/i") WebElement twiggleStock;
 	
-	@FindBy(xpath="//span[.='לבירור מלאי אנא בחרו חנות מהרשימה']") WebElement moreStockInfo;
-	
+	@FindBy(xpath="/html/body/div[3]/div[2]/div[2]/div/div[1]/div[2]/div/div[8]/span[1]/span") WebElement stockStatus;
+
 	@FindBy(xpath="//span[.='קריית אתא']") WebElement stockKiryatAta;
 	
 	@FindBy(xpath="//span[.='נתניה']") WebElement stockNetanya;
@@ -36,13 +40,15 @@ public class ProductPage {
 	
 	@FindBy(xpath="//span[.='באר שבע']") WebElement stockBeersheba;
 	
-	public void searchSKU(String userSKU)
+	@FindBy(xpath="//span[.='לחץ כאן לבדיקת מיקום המוצר בחנויות ושעות פתיחה']") WebElement location;
+	
+/*	public void searchSKU(String userSKU)
 	{
 		searchButton.click();
 		searchButton.sendKeys(userSKU);
 		submitSearch.click();
 	}
-	
+*/	
 	public void assertProductPage(String valueSKU, String valueSeries)
 	{
 		Assert.assertEquals(SKU.getText(), valueSKU,"Can't find product code: "+SKU.getText());
@@ -52,26 +58,31 @@ public class ProductPage {
 	
 	public void checkForStock()
 	{
-		stockInfo.click();
-		stockKiryatAta.click();
-		System.out.println(stockStatus.getText());
+		openStock.click();
 		
-		moreStockInfo.click();
-		stockNetanya.click();
-		System.out.println(stockStatus.getText());
+		ArrayList<WebElement> stores = new ArrayList<WebElement>();
+		stores.add(stockKiryatAta);
+		stores.add(stockNetanya);
+		stores.add(stockRishonLeZion);
+		stores.add(stockBeersheba);
 		
-		moreStockInfo.click();
-		stockRishonLeZion.click();
-		System.out.println(stockStatus.getText());
+		for(WebElement element: stores)
+		{
+			element.click();
+			
+			System.out.println("The current stock status of "+element.getText()+" is: "+stockStatus.getText());
+			
+			twiggleStock.click();
+		}
 		
-		moreStockInfo.click();
-		stockBeersheba.click();
-		System.out.println(stockStatus.getText());
+		location.click();
+		
 		try {
-			Thread.sleep(2000);
+			Thread.sleep(3000);
 		} catch (InterruptedException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		
 	}
 }

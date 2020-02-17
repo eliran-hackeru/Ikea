@@ -15,7 +15,7 @@ public class ProductTestEcommerce extends BaseClass
 	{
 		ProductPage productPage = PageFactory.initElements(driver, ProductPage.class);
 		
-		productPage.searchSKU(excel.getNumericData("Product",0, 0));
+//		productPage.searchSKU(excel.getNumericData("Product",0, 0));
 		
 		productPage.assertProductPage(excel.getNumericData("Product",0, 0), excel.getStringData("Product", 0, 1));
 		
