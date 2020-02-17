@@ -42,6 +42,8 @@ public class ProductPage {
 	
 	@FindBy(xpath="//span[.='לחץ כאן לבדיקת מיקום המוצר בחנויות ושעות פתיחה']") WebElement location;
 	
+	@FindBy(xpath="/html/body/div[4]/div/div[2]/div/div[2]/div[1]/div/a") WebElement twiggleLocation;
+	
 	public void searchSKU(String userSKU)
 	{
 		searchButton.click();
@@ -80,6 +82,8 @@ public class ProductPage {
 	public void checkForLocation()
 	{
 		location.click();
+		
+		twiggleLocation.click();
 		
 		try {
 			Thread.sleep(3000);
