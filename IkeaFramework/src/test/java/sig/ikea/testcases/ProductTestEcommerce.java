@@ -11,7 +11,7 @@ public class ProductTestEcommerce extends BaseClass
 {
 	
 	@Test
-	public void searchtApp()
+	public void productApp()
 	{
 		String testName = this.getClass().getSimpleName();
 		

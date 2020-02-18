@@ -3,10 +3,12 @@ package sig.ikea.pages;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.FindBys;
+import org.openqa.selenium.support.ui.Select;
 import org.testng.Assert;
 
 public class ProductPage {
@@ -42,7 +44,21 @@ public class ProductPage {
 	
 	@FindBy(xpath="//span[.='לחץ כאן לבדיקת מיקום המוצר בחנויות ושעות פתיחה']") WebElement location;
 	
-	@FindBy(xpath="/html/body/div[4]/div/div[2]/div/div[2]/div[1]/div/a") WebElement twiggleLocation;
+	@FindBy(xpath="/html/body/div[4]/div/div[2]/div/div[2]/div[1]/div/a/span[2]/div/span") WebElement twiggleLocation;
+	
+	@FindBy(xpath="//li[@id='ui-select-choices-row-1-1']") WebElement locationNetanya;
+	
+	@FindBy(xpath="//li[@id='ui-select-choices-row-1-2']") WebElement locationRishonLeZion;
+	
+	@FindBy(xpath="//li[@id='ui-select-choices-row-1-3']") WebElement locationKiryatAta;
+	
+	@FindBy(xpath="//li[@id='ui-select-choices-row-1-4']") WebElement locationBeersheba;
+	
+	@FindBy(xpath="/html/body/div[4]/div/div[2]/div/div[2]/div[1]/div/a/span[2]/div/span/span[2]") WebElement locationName;
+	
+	@FindBy(xpath="(//*[@class='picking_bin_title small'])[7]") WebElement locationStatus;
+	
+	@FindBy(xpath="/html/body/div[4]/div/div[2]/div/div[2]/div[2]/div[2]/div[2]/div[2]/div[2]") WebElement locationAvailability;
 	
 	public void searchSKU(String userSKU)
 	{
@@ -76,7 +92,6 @@ public class ProductPage {
 			
 			twiggleStock.click();
 		}
-		
 	}
 		
 	public void checkForLocation()
@@ -85,11 +100,19 @@ public class ProductPage {
 		
 		twiggleLocation.click();
 		
-		try {
-			Thread.sleep(3000);
-		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+		ArrayList<WebElement> stores = new ArrayList<WebElement>();
+		stores.add(locationNetanya);
+		stores.add(locationRishonLeZion);
+		stores.add(locationKiryatAta);
+		stores.add(locationBeersheba);
+				
+		for (WebElement element: stores)
+		{
+			element.click();
+			
+			System.out.println("The location status of " + locationName.getAttribute("innerHTML") + " is: " + locationAvailability.getAttribute("innerHTML"));
+			
+			twiggleLocation.click();
 		}
 	}
 }
