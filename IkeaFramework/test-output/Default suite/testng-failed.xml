@@ -5,10 +5,10 @@
     <classes>
       <class name="sig.ikea.testcases.ProductTestEcommerce">
         <methods>
-          <include name="searchtApp"/>
           <include name="setupApplication"/>
           <include name="tearDown"/>
           <include name="tearDownMethod"/>
+          <include name="productApp"/>
           <include name="setUpSuite"/>
         </methods>
       </class> <!-- sig.ikea.testcases.ProductTestEcommerce -->

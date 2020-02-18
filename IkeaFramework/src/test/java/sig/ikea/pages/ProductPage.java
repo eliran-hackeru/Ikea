@@ -1,14 +1,11 @@
 package sig.ikea.pages;
 
 import java.util.ArrayList;
-import java.util.List;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.FindBys;
-import org.openqa.selenium.support.ui.Select;
 import org.testng.Assert;
 
 public class ProductPage {
@@ -60,6 +57,22 @@ public class ProductPage {
 	
 	@FindBy(xpath="/html/body/div[4]/div/div[2]/div/div[2]/div[2]/div[2]/div[2]/div[2]/div[2]") WebElement locationAvailability;
 	
+	@FindBy(xpath="/html/body/div[4]/div/div[2]/div/div[2]/div[2]/div[2]/div[2]/div[2]/div[3]/span[1]/span[2]") WebElement aisleNetanya;
+	
+	@FindBy(xpath="/html/body/div[4]/div/div[2]/div/div[2]/div[2]/div[2]/div[3]/div[2]/div[3]/span[1]/span[2]") WebElement aisleRishonLeZion;
+	
+	@FindBy(xpath="/html/body/div[4]/div/div[2]/div/div[2]/div[2]/div[2]/div[4]/div[2]/div[3]/span[1]/span[2]") WebElement aisleKiryatAta;
+	
+	@FindBy(xpath="/html/body/div[4]/div/div[2]/div/div[2]/div[2]/div[2]/div[5]/div[2]/div[3]/span[1]/span[2]") WebElement aisleBeersheba;
+	
+	@FindBy(xpath="/html/body/div[4]/div/div[2]/div/div[2]/div[2]/div[2]/div[2]/div[2]/div[3]/span[2]/span[2]") WebElement shelfNetanya;
+	
+	@FindBy(xpath="/html/body/div[4]/div/div[2]/div/div[2]/div[2]/div[2]/div[3]/div[2]/div[3]/span[2]/span[2]") WebElement shelfRishonLeZion;
+	
+	@FindBy(xpath="/html/body/div[4]/div/div[2]/div/div[2]/div[2]/div[2]/div[4]/div[2]/div[3]/span[2]/span[2]") WebElement shelfKiryatAta;
+	
+	@FindBy(xpath="/html/body/div[4]/div/div[2]/div/div[2]/div[2]/div[2]/div[5]/div[2]/div[3]/span[2]/span[2]") WebElement shelfBeersheba;
+	
 	public void searchSKU(String userSKU)
 	{
 		searchButton.click();
@@ -105,13 +118,43 @@ public class ProductPage {
 		stores.add(locationRishonLeZion);
 		stores.add(locationKiryatAta);
 		stores.add(locationBeersheba);
+		
+		ArrayList<WebElement> aisles = new ArrayList<WebElement>();
+		aisles.add(aisleNetanya);
+		aisles.add(aisleRishonLeZion);
+		aisles.add(aisleKiryatAta);
+		aisles.add(aisleBeersheba);
+		
+		ArrayList<WebElement> shelfs = new ArrayList<WebElement>();
+		shelfs.add(shelfNetanya);
+		shelfs.add(shelfRishonLeZion);
+		shelfs.add(shelfKiryatAta);
+		shelfs.add(shelfBeersheba);
 				
-		for (WebElement element: stores)
-		{
-			element.click();
+//		Enhanced for Loop: for (WebElement element: stores)
+		
+		for (int i=0; i<aisles.size(); i++)
+			{
+			
+			WebElement store = stores.get(i);
+			WebElement aisle = aisles.get(i);
+			WebElement shelf = shelfs.get(i);
+			
+			store.click();
 			
 			System.out.println("The location status of " + locationName.getAttribute("innerHTML") + " is: " + locationAvailability.getAttribute("innerHTML"));
 			
+			if (aisle.getAttribute("innerHTML").contentEquals("חד"))
+			{
+				locationAvailability = driver.findElement(By.xpath("/html/body/div[4]/div/div[2]/div/div[2]/div[2]/div[2]/div[2]/div[1]/div[3]/div[1]"));
+				System.out.println("The location status of " + locationName.getAttribute("innerHTML") + " is: " + locationAvailability.getAttribute("innerHTML"));
+				System.out.println("The product can be found at: מחלקת "+aisle.getAttribute("innerHTML")+shelf.getAttribute("innerHTML"));
+			}
+			else
+			{
+				System.out.println("The location status of " + locationName.getAttribute("innerHTML") + " is: " + locationAvailability.getAttribute("innerHTML"));
+				System.out.println("The product can be found at aisle: "+aisle.getAttribute("innerHTML")+" on shelf number: "+shelf.getAttribute("innerHTML"));
+			}
 			twiggleLocation.click();
 		}
 	}

@@ -4,13 +4,11 @@ import java.io.File;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
-
 import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.By;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
@@ -18,7 +16,7 @@ public class Helper {
 	
 	//Screenshots, alerts, frames, windows, Sync issue, javascript executor
 	
-	public static void captureScreenshot(WebDriver driver, String screenshotName, String testName) 
+	public static void captureScreenshot(WebDriver driver, String testName, String screenshotName) 
 	{
 		try 
 		{
@@ -26,7 +24,7 @@ public class Helper {
 			
 			File src = ts.getScreenshotAs(OutputType.FILE);
 			
-			File DestFile=new File("./Screenshots/"+screenshotName+"_"+getCurrentDateTime()+"_"+testName+".png");
+			File DestFile=new File("./Screenshots/"+testName+"_"+screenshotName+"_"+getCurrentDateTime()+".png");
 			
 			FileUtils.copyFile(src,DestFile);
 			
@@ -40,7 +38,9 @@ public class Helper {
 	
 	public static String getCurrentDateTime()
 	{
-		DateFormat customFormat = new SimpleDateFormat("yyyy-MM-dd HH_mm_ss");
+		DateFormat customFormat = new SimpleDateFormat("yyyy-MM-dd");
+		
+//		Full date format: DateFormat customFormat = new SimpleDateFormat("yyyy-MM-dd HH_mm_ss");
 		
 		Date currentDate = new Date();
 		
