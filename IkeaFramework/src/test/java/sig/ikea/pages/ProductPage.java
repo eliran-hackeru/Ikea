@@ -152,8 +152,6 @@ public class ProductPage {
 		
 		System.out.println("Testing the location status of product: " + SKU.getText() + " " + series.getText());
 		
-//		Enhanced for Loop: for (WebElement element: stores)
-		
 		for (int i=0; i<aisles.size(); i++)
 			{
 			

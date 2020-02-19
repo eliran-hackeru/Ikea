@@ -28,8 +28,6 @@ public class ProductTestEcommerce extends BaseClass
 		
 		productPage.checkForStock();
 		
-		
-		
 		Helper.captureScreenshot(driver,testName,"03_Stock_Status");
 		
 		productPage.checkForLocation();
