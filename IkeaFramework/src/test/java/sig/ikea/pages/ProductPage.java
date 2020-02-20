@@ -1,11 +1,13 @@
 package sig.ikea.pages;
 
-import static org.testng.Assert.assertNotNull;
 import java.util.ArrayList;
+import java.util.List;
+import java.util.concurrent.TimeUnit;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.How;
 import org.testng.Assert;
 
 public class ProductPage {
@@ -42,8 +44,6 @@ public class ProductPage {
 	@FindBy(css="span[ng-bind-html='current_store.status_msg']") WebElement stockAssertion;
 	
 	@FindBy(xpath="//span[.='לחץ כאן לבדיקת מיקום המוצר בחנויות ושעות פתיחה']") WebElement location;
-	
-	@FindBy(xpath="/html/body/div[4]/div/div[2]/div/div[2]/div[1]/div/a/span[2]/div/span") WebElement toggleLocation;
 	
 	@FindBy(id="quick_links_close") WebElement closeLocation;
 	
@@ -95,6 +95,8 @@ public class ProductPage {
 	
 	@FindBy(id="ZA_CANVAS_640983_CLICKABLE_BIMAGE_2") WebElement closeAd;
 	
+	@FindBy(how = How.CSS, using="i[class*='glyphicon glyphicon-menu-']") List<WebElement> toggles;
+	
 	public void searchSKU(String userSKU)
 	{
 		searchButton.click();
@@ -130,6 +132,7 @@ public class ProductPage {
 	{
 		location.click();
 		
+		WebElement toggleLocation = toggles.get(16);
 		toggleLocation.click();
 		
 		ArrayList<WebElement> stores = new ArrayList<WebElement>();
@@ -173,11 +176,12 @@ public class ProductPage {
 				System.out.println("The product can be found at aisle: "+aisle.getAttribute("innerHTML")+" on shelf number: "+shelf.getAttribute("innerHTML"));
 			}
 			toggleLocation.click();
+
 		}
 		
 	}
 	
-	public void productDetails()
+	public void productDetails() throws InterruptedException
 	{
 		closeLocation.click();
 
@@ -191,10 +195,10 @@ public class ProductPage {
 						
 		for(WebElement element: details)
 		{
-			if (element.getText().equalsIgnoreCase("גודל ומשקל"))
-			{
-				closeAd.click();
-			}
+		if (checkForAd(driver))
+				{
+				closeTheAd();
+				}
 			element.click();
 			System.out.println("The content of " + element.getText() + " is:");
 			System.out.println(information.getText());
@@ -224,5 +228,18 @@ public class ProductPage {
 		System.out.println("Assert passed");
 		Assert.assertEquals(nameLocation.getText(), valueSeries, "Can't find the location of product series name: "+series.getText());
 		System.out.println("Assert passed");
+	}
+	
+	public static boolean checkForAd(WebDriver driver)
+	{
+		driver.manage().timeouts().implicitlyWait(0, TimeUnit.MILLISECONDS);
+		boolean exists = driver.findElements(By.id("ZA_CANVAS_640983_CLICKABLE_BIMAGE_2")).size() != 0;
+		driver.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
+		return exists;
+	}
+	
+	public void closeTheAd()
+	{
+		closeAd.click();
 	}
 }

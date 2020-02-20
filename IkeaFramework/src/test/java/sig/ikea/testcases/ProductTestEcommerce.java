@@ -10,7 +10,7 @@ public class ProductTestEcommerce extends BaseClass
 {
 	
 	@Test
-	public void productApp()
+	public void productApp() throws InterruptedException
 	{
 //		To get the class name: String testName = this.getClass().getSimpleName();
 		

@@ -2,35 +2,35 @@
 <testng-results ignored="0" total="1" passed="1" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2020-02-19T18:56:14 IST" name="Default suite" finished-at="2020-02-19T18:56:45 IST" duration-ms="31008">
+  <suite started-at="2020-02-20T13:55:20 IST" name="Default suite" finished-at="2020-02-20T13:56:08 IST" duration-ms="47484">
     <groups>
     </groups>
-    <test started-at="2020-02-19T18:56:14 IST" name="Default test" finished-at="2020-02-19T18:56:45 IST" duration-ms="31008">
+    <test started-at="2020-02-20T13:55:20 IST" name="Default test" finished-at="2020-02-20T13:56:08 IST" duration-ms="47484">
       <class name="sig.ikea.testcases.ProductTestEcommerce">
-        <test-method is-config="true" signature="setUpSuite()[pri:0, instance:sig.ikea.testcases.ProductTestEcommerce@186f8716]" started-at="2020-02-19T18:56:13 IST" name="setUpSuite" finished-at="2020-02-19T18:56:14 IST" duration-ms="927" status="PASS">
+        <test-method is-config="true" signature="setUpSuite()[pri:0, instance:sig.ikea.testcases.ProductTestEcommerce@1d8bd0de]" started-at="2020-02-20T13:55:19 IST" name="setUpSuite" finished-at="2020-02-20T13:55:20 IST" duration-ms="1610" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUpSuite -->
-        <test-method is-config="true" signature="setupApplication()[pri:0, instance:sig.ikea.testcases.ProductTestEcommerce@186f8716]" started-at="2020-02-19T18:56:14 IST" name="setupApplication" finished-at="2020-02-19T18:56:27 IST" duration-ms="13727" status="PASS">
+        <test-method is-config="true" signature="setupApplication()[pri:0, instance:sig.ikea.testcases.ProductTestEcommerce@1d8bd0de]" started-at="2020-02-20T13:55:21 IST" name="setupApplication" finished-at="2020-02-20T13:55:39 IST" duration-ms="18187" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setupApplication -->
-        <test-method signature="productApp()[pri:0, instance:sig.ikea.testcases.ProductTestEcommerce@186f8716]" started-at="2020-02-19T18:56:27 IST" name="productApp" finished-at="2020-02-19T18:56:44 IST" duration-ms="16530" status="PASS">
+        <test-method signature="productApp()[pri:0, instance:sig.ikea.testcases.ProductTestEcommerce@1d8bd0de]" started-at="2020-02-20T13:55:39 IST" name="productApp" finished-at="2020-02-20T13:56:07 IST" duration-ms="28207" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- productApp -->
-        <test-method is-config="true" signature="tearDownMethod(org.testng.ITestResult)[pri:0, instance:sig.ikea.testcases.ProductTestEcommerce@186f8716]" started-at="2020-02-19T18:56:44 IST" name="tearDownMethod" finished-at="2020-02-19T18:56:44 IST" duration-ms="3" status="PASS">
+        <test-method is-config="true" signature="tearDownMethod(org.testng.ITestResult)[pri:0, instance:sig.ikea.testcases.ProductTestEcommerce@1d8bd0de]" started-at="2020-02-20T13:56:07 IST" name="tearDownMethod" finished-at="2020-02-20T13:56:07 IST" duration-ms="8" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[[TestResult name=productApp status=SUCCESS method=ProductTestEcommerce.productApp()[pri:0, instance:sig.ikea.testcases.ProductTestEcommerce@186f8716] output={null}]]]>
+                <![CDATA[[TestResult name=productApp status=SUCCESS method=ProductTestEcommerce.productApp()[pri:0, instance:sig.ikea.testcases.ProductTestEcommerce@1d8bd0de] output={null}]]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDownMethod -->
-        <test-method is-config="true" signature="tearDown()[pri:0, instance:sig.ikea.testcases.ProductTestEcommerce@186f8716]" started-at="2020-02-19T18:56:44 IST" name="tearDown" finished-at="2020-02-19T18:56:45 IST" duration-ms="705" status="PASS">
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:sig.ikea.testcases.ProductTestEcommerce@1d8bd0de]" started-at="2020-02-20T13:56:07 IST" name="tearDown" finished-at="2020-02-20T13:56:08 IST" duration-ms="1000" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDown -->
