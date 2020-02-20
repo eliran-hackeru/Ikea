@@ -95,7 +95,19 @@ public class ProductPage {
 	
 	@FindBy(id="ZA_CANVAS_640983_CLICKABLE_BIMAGE_2") WebElement closeAd;
 	
-	@FindBy(how = How.CSS, using="i[class*='glyphicon glyphicon-menu-']") List<WebElement> toggles;
+	@FindBy(css="i[class*='glyphicon glyphicon-menu-']") List<WebElement> toggles;
+	
+	@FindBy(css="div[ng-click='openDocFolder = !openDocFolder']") WebElement assemble;
+	
+	@FindBy(css="span[class*='doc_title ng-binding']") List<WebElement> pdfList;
+	
+	@FindBy(css="span[ng-bind-html*='product.Material_s']") WebElement materials;
+	
+	@FindBy(css="span[ng-bind-html*='product.Good_to_Know_s']") WebElement goodContent;
+	
+	@FindBy(css="span[class*='details_text ng-binding ng-scope']") List<WebElement> countries;
+	
+	@FindBy(css="span[ng-bind-html*='product.Designer_s']") WebElement designer;
 	
 	public void searchSKU(String userSKU)
 	{
@@ -183,16 +195,23 @@ public class ProductPage {
 	
 	public void productDetails() throws InterruptedException
 	{
-		closeLocation.click();
+//		closeLocation.click();
+		
+		checkInstruction();
+		
+		checkForEnvironment();
+		
+		checkGoodToKnow();
+		
+		checkComponents();
 
-		ArrayList<WebElement> details = new ArrayList<WebElement>();
+/*		ArrayList<WebElement> details = new ArrayList<WebElement>();
 		details.add(instructions);
 		details.add(environment);
 		details.add(goodToKnow);
 		details.add(components);
 		details.add(sizeNweight);
-		
-						
+							
 		for(WebElement element: details)
 		{
 		if (checkForAd(driver))
@@ -203,8 +222,60 @@ public class ProductPage {
 			System.out.println("The content of " + element.getText() + " is:");
 			System.out.println(information.getText());
 		}
+*/		
+	}
 	
+	public void checkInstruction()
+	{
+		instructions.click();
 		
+		assemble.click();
+		
+		System.out.println("The content of " + instructions.getText() + " is:");
+		
+		for(WebElement element: pdfList)
+		{
+			System.out.println(element.getText());
+		}
+	}
+	
+	public void checkForEnvironment()
+	{
+		environment.click();
+		
+		System.out.println("The content of " + environment.getText() + " is:");
+		System.out.println(materials.getAttribute("innerHTML"));
+	}
+	
+	public void checkGoodToKnow()
+	{
+		goodToKnow.click();
+		
+		System.out.println("The content of " + goodToKnow.getText() + " is:");
+		System.out.println(goodContent.getAttribute("innerHTML"));
+		
+		System.out.println("The manufacturer countries are: ");
+		
+		for(WebElement element: countries)
+		{
+			System.out.print(element.getText());
+		}
+		
+		System.out.println();
+		System.out.println("Designed by: ");
+		System.out.println(designer.getAttribute("innerHTML"));
+	}
+	
+	public void checkComponents()
+	{
+		if (checkIfCmponentsExist(driver))
+		{
+			components.click();
+		}
+		else
+		{
+			System.out.println("This product doesn't have components details");
+		}
 	}
 	
 	public void assertSKUPage(String valueSKU, String valueSeries)
@@ -235,6 +306,15 @@ public class ProductPage {
 		driver.manage().timeouts().implicitlyWait(0, TimeUnit.MILLISECONDS);
 		boolean exists = driver.findElements(By.id("ZA_CANVAS_640983_CLICKABLE_BIMAGE_2")).size() != 0;
 		driver.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
+		return exists;
+	}
+	
+	public static boolean checkIfCmponentsExist(WebDriver driver)
+	{
+		driver.manage().timeouts().implicitlyWait(0, TimeUnit.MILLISECONDS);
+		boolean exists = driver.findElements(By.cssSelector("div[ng-bind-html='sprsQuickLinksProduct.product.Description_s']")).size() < 3;
+		driver.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
+		System.out.println(exists);
 		return exists;
 	}
 	

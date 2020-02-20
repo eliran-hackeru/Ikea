@@ -18,7 +18,7 @@ public class ProductTestEcommerce extends BaseClass
 		
 		ProductPage productPage = PageFactory.initElements(driver, ProductPage.class);
 		
-		Helper.captureScreenshot(driver,testName,"01_BrowserStarted");
+/*		Helper.captureScreenshot(driver,testName,"01_BrowserStarted");
 		
 		productPage.searchSKU(excel.getNumericData("Product",0, 0));
 		
@@ -36,7 +36,7 @@ public class ProductTestEcommerce extends BaseClass
 		
 		Helper.captureScreenshot(driver,testName,"04_Location_Status");
 		
-		productPage.productDetails();
+*/		productPage.productDetails();
 		
 		Helper.captureScreenshot(driver,testName,"05_Product_details");
 	}
