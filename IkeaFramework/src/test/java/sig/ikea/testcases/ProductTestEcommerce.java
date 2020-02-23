@@ -26,17 +26,17 @@ public class ProductTestEcommerce extends BaseClass
 		
 		Helper.captureScreenshot(driver,testName,"02_Search_SKU");
 		
-		productPage.checkForStock();
+*/		productPage.checkForStock();
 		
 		Helper.captureScreenshot(driver,testName,"03_Stock_Status");
 		
 		productPage.checkForLocation();
 		
-		productPage.assertLocation(excel.getNumericData("Product",0, 0), excel.getStringData("Product", 0, 1));
+//		productPage.assertLocation(excel.getNumericData("Product",0, 0), excel.getStringData("Product", 0, 1));
 		
 		Helper.captureScreenshot(driver,testName,"04_Location_Status");
 		
-*/		productPage.productDetails();
+		productPage.productDetails();
 		
 		Helper.captureScreenshot(driver,testName,"05_Product_details");
 	}

@@ -13,3 +13,6 @@
 [0220/174537.878:ERROR:file_io.cc(89)] ReadExactly: expected 36, observed 0
 [0220/180431.406:ERROR:file_io.cc(134)] WriteFile: The pipe is being closed. (0xE8)
 [0220/180826.438:ERROR:file_io.cc(89)] ReadExactly: expected 36, observed 0
+[0223/104842.731:ERROR:file_io.cc(134)] WriteFile: The pipe is being closed. (0xE8)
+[0223/110009.190:ERROR:file_io.cc(134)] WriteFile: The pipe is being closed. (0xE8)
+[0223/155344.200:ERROR:file_io.cc(89)] ReadExactly: expected 36, observed 0
