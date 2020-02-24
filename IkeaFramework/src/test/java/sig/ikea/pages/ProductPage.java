@@ -8,9 +8,6 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindAll;
 import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.FindBys;
-
-import org.openqa.selenium.support.How;
 import org.testng.Assert;
 
 import sig.ikea.utility.Helper;
@@ -68,23 +65,7 @@ public class ProductPage {
 	
 	@FindBy(css="span[class*='product_picking_bin aisle ng-binding']") List<WebElement> pickingBin;
 	
-	/*	@FindBy(xpath="/html/body/div[4]/div/div[2]/div/div[2]/div[2]/div[2]/div[2]/div[2]/div[3]/span[1]/span[2]") WebElement aisleNetanya;
-	
-	@FindBy(xpath="/html/body/div[4]/div/div[2]/div/div[2]/div[2]/div[2]/div[3]/div[2]/div[3]/span[1]/span[2]") WebElement aisleRishonLeZion;
-	
-	@FindBy(xpath="/html/body/div[4]/div/div[2]/div/div[2]/div[2]/div[2]/div[4]/div[2]/div[3]/span[1]/span[2]") WebElement aisleKiryatAta;
-	
-	@FindBy(xpath="/html/body/div[4]/div/div[2]/div/div[2]/div[2]/div[2]/div[5]/div[2]/div[3]/span[1]/span[2]") WebElement aisleBeersheba;
-	
-	@FindBy(xpath="/html/body/div[4]/div/div[2]/div/div[2]/div[2]/div[2]/div[2]/div[2]/div[3]/span[2]/span[2]") WebElement shelfNetanya;
-	
-	@FindBy(xpath="/html/body/div[4]/div/div[2]/div/div[2]/div[2]/div[2]/div[3]/div[2]/div[3]/span[2]/span[2]") WebElement shelfRishonLeZion;
-	
-	@FindBy(xpath="/html/body/div[4]/div/div[2]/div/div[2]/div[2]/div[2]/div[4]/div[2]/div[3]/span[2]/span[2]") WebElement shelfKiryatAta;
-	
-	@FindBy(xpath="/html/body/div[4]/div/div[2]/div/div[2]/div[2]/div[2]/div[5]/div[2]/div[3]/span[2]/span[2]") WebElement shelfBeersheba;
-	
-*/	@FindBy(xpath="/html/body/div[4]/div/div[2]/div/div[2]/div[2]/div[2]/div[1]/div[2]") WebElement nameLocation;
+	@FindBy(xpath="/html/body/div[4]/div/div[2]/div/div[2]/div[2]/div[2]/div[1]/div[2]") WebElement nameLocation;
 	
 	@FindAll({@FindBy(className="ng-binding")}) List<WebElement> SKULocation;
 	
@@ -96,7 +77,7 @@ public class ProductPage {
 	
 	@FindBy(xpath="//span[.='פירוט מרכיבי המוצר']") WebElement components;
 	
-	@FindBy(xpath="//span[.='גודל ומשקל']") WebElement sizeNweight;
+	@FindBy(xpath="//span[.='גודל ומשקל']") WebElement sizeAndWeight;
 	
 	@FindBy(xpath="//span[@class='details_text break_line_wrap ng-binding']") WebElement information;
 	
@@ -117,6 +98,16 @@ public class ProductPage {
 	@FindBy(css="span[ng-bind-html*='product.Designer_s']") WebElement designer;
 	
 	@FindBy(className="tab_head_title") List<WebElement> details;
+	
+	@FindBy(css="span[ng-bind-html='product.Customer_Benefits_s']") WebElement generalInfo;
+	
+	@FindBy(css="td[class='alias ng-binding']") List<WebElement> aliasFields;
+	
+	@FindBy(css="td[class='solr_value details_text ng-binding']") List<WebElement> solrFields;
+	
+	@FindBy(css="div[ng-bind-html='sprsQuickLinksProduct.product.Description_s']") List<WebElement> spr;
+	
+	@FindBy(css="div[ng-bind-html='sprsQuickLinksProduct.product.Series_s || sprsQuickLinksProduct.product.Series_t']") List<WebElement> sprNames;
 	
 	public void searchSKU(String userSKU)
 	{
@@ -152,7 +143,7 @@ public class ProductPage {
 	public void checkForLocation()
 	{
 		int counter = 0;
-		
+		String[] storeNames = {"נתניה","ראשל\"צ","קריית אתא","באר שבע"};
 		location.click();
 		
 		WebElement toggleLocation = toggles.get(16);
@@ -163,50 +154,22 @@ public class ProductPage {
 		stores.add(locationRishonLeZion);
 		stores.add(locationKiryatAta);
 		stores.add(locationBeersheba);
-		
-/*		ArrayList<WebElement> aisles = new ArrayList<WebElement>();
-		aisles.add(aislesList.get(1));
-		aisles.add(aisleRishonLeZion);
-		aisles.add(aisleKiryatAta);
-		aisles.add(aisleBeersheba);
-		
-		ArrayList<WebElement> shelfs = new ArrayList<WebElement>();
-		shelfs.add(shelfNetanya);
-		shelfs.add(shelfRishonLeZion);
-		shelfs.add(shelfKiryatAta);
-		shelfs.add(shelfBeersheba);
-		
-*/		System.out.println("Testing the location status of product: " + SKU.getText() + " " + series.getText());
+		System.out.println("Testing the location status of product: " + SKU.getText() + " " + series.getText());
 		
 		for (int i=0; i<stores.size(); i++)
-			{			
+			{
+						
 			WebElement store = stores.get(i);
-//			WebElement aisle = aisles.get(i);
-//			WebElement shelf = shelfs.get(i);
-			
 			store.click();
 			
-/*			if (aisle.getAttribute("innerHTML").contentEquals("חד"))
-			{
-				locationAvailability = driver.findElement(By.xpath("/html/body/div[4]/div/div[2]/div/div[2]/div[2]/div[2]/div[2]/div[1]/div[3]/div[1]"));
-				System.out.println("The location status of " + locationName.getAttribute("innerHTML") + " is: " + locationAvailability.getAttribute("innerHTML"));
-				System.out.println("The product can be found at: מחלקת "+aisle.getAttribute("innerHTML")+shelf.getAttribute("innerHTML"));
-			}
-			else
-			{
-				System.out.println("The location status of " + locationName.getAttribute("innerHTML") + " is: " + locationAvailability.getAttribute("innerHTML"));
-				System.out.println("The product can be found at aisle: "+aisle.getAttribute("innerHTML")+" on shelf number: "+shelf.getAttribute("innerHTML"));
-			}
-			
-*/			System.out.println(pickingBin.get(0).getAttribute("innerHTML"));
+			System.out.println("Location of "+storeNames[i]+" is: "+pickingBin.get(0).getAttribute("innerHTML"));
 			toggleLocation.click();
 			counter++;
 			}
 		assertLocation(counter);
-		
 	}
 	
-	public void productDetails() throws InterruptedException
+	public void productDetails()
 	{
 		closeLocation.click();
 		
@@ -218,12 +181,20 @@ public class ProductPage {
 		
 		checkGoodToKnow();
 		
-		checkComponents();		
+		checkComponents();
+		
+		checkSizeAndWeight();
+		
+		try {
+			Thread.sleep(2000);
+		} catch (InterruptedException e) {
+			System.out.println(e.getMessage());
+		}
 	}
 	
 	public void checkInstruction()
 	{
-//		instructions.click();
+		instructions.click();
 		details.get(5).click();	
 		assemble.click();
 		
@@ -264,14 +235,39 @@ public class ProductPage {
 	
 	public void checkComponents()
 	{
-		if (checkIfCmponentsExist(driver))
+		if (Helper.checkIfElementExists(components))
 		{
 			components.click();
+			
+			System.out.println("The content of " + components.getText() + " is:");
+			
+			for(int i=0; i<spr.size(); i++)
+			{
+				System.out.println(spr.get(i).getText()+" of "+sprNames.get(i).getText());
+			}
 		}
 		else
 		{
 			System.out.println("This product doesn't have components details");
 		}
+	}
+	
+	public void checkSizeAndWeight()
+	{
+		sizeAndWeight.click();
+		
+		System.out.println("The content of " + sizeAndWeight.getText() + " is:");
+		System.out.println("General Information: ");
+		System.out.println(generalInfo.getAttribute("innerHTML"));
+		
+		
+		System.out.println("Product Dimensions:");
+
+		for(int i=0; i<solrFields.size(); i++)
+		{
+			System.out.println(aliasFields.get(i).getAttribute("innerHTML")+": "+solrFields.get(i).getAttribute("innerHTML"));
+		}
+		
 	}
 	
 	public void assertSKUPage(String valueSKU, String valueSeries)
@@ -294,26 +290,13 @@ public class ProductPage {
 		
 		Assert.assertEquals(counter,4,"Didn't count 4 stores");
 		System.out.println("Assert passed");
-/*		Assert.assertEquals(SKULocation.get(20).getText(), valueSKU,"Can't find the location of product code: "+SKU.getText());
-		System.out.println("Assert passed");
-		Assert.assertEquals(nameLocation.getText(), valueSeries, "Can't find the location of product series name: "+series.getText());
-		System.out.println("Assert passed");
-*/	}
+	}
 	
 	public static boolean checkForAd(WebDriver driver)
 	{
 		driver.manage().timeouts().implicitlyWait(0, TimeUnit.MILLISECONDS);
 		boolean exists = driver.findElements(By.id("ZA_CANVAS_640983_CLICKABLE_BIMAGE_2")).size() != 0;
 		driver.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
-		return exists;
-	}
-	
-	public static boolean checkIfCmponentsExist(WebDriver driver)
-	{
-		driver.manage().timeouts().implicitlyWait(0, TimeUnit.MILLISECONDS);
-		boolean exists = driver.findElements(By.cssSelector("div[ng-bind-html='sprsQuickLinksProduct.product.Description_s']")).size() != 0;
-		driver.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
-		System.out.println(exists);
 		return exists;
 	}
 	
