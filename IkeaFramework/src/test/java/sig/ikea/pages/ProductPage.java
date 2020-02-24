@@ -1,5 +1,7 @@
 package sig.ikea.pages;
 
+import static org.testng.Assert.assertTrue;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
@@ -194,6 +196,8 @@ public class ProductPage {
 	
 	public void checkInstruction()
 	{
+		assertInstructions();
+		
 		instructions.click();
 		details.get(5).click();	
 		assemble.click();
@@ -208,6 +212,8 @@ public class ProductPage {
 	
 	public void checkForEnvironment()
 	{
+		assertEnvironment();
+		
 		environment.click();
 		
 		System.out.println("The content of " + environment.getText() + " is:");
@@ -216,6 +222,8 @@ public class ProductPage {
 	
 	public void checkGoodToKnow()
 	{
+		assertGoodToKnow();
+		
 		goodToKnow.click();
 		
 		System.out.println("The content of " + goodToKnow.getText() + " is:");
@@ -235,6 +243,8 @@ public class ProductPage {
 	
 	public void checkComponents()
 	{
+		int counter = 0;
+		
 		if (Helper.checkIfElementExists(components))
 		{
 			components.click();
@@ -244,7 +254,9 @@ public class ProductPage {
 			for(int i=0; i<spr.size(); i++)
 			{
 				System.out.println(spr.get(i).getText()+" of "+sprNames.get(i).getText());
+				counter++;
 			}
+			assertComponents(counter,spr.size());
 		}
 		else
 		{
@@ -254,6 +266,7 @@ public class ProductPage {
 	
 	public void checkSizeAndWeight()
 	{
+		assertSizeAndWeight();
 		sizeAndWeight.click();
 		
 		System.out.println("The content of " + sizeAndWeight.getText() + " is:");
@@ -273,23 +286,53 @@ public class ProductPage {
 	public void assertSKUPage(String valueSKU, String valueSeries)
 	{
 		Assert.assertEquals(SKU.getText(), valueSKU,"Can't find product code: "+SKU.getText());
-		System.out.println("Assert passed");
+		System.out.println("Assert Product SKU passed");
 		Assert.assertEquals(series.getText(), valueSeries, "Can't find product series name: "+series.getText());
-		System.out.println("Assert passed");
+		System.out.println("Assert Product Name passed");
 	}
 	
 	
 	public void assertStock(WebElement element)
 	{
 		Assert.assertNotNull(stockAssertion.getText(), "Can't find the stock status of: " + element.getText());
-		System.out.println("Assert passed");
+		System.out.println("Assert Stock of "+element.getText()+" passed");
 	}
 	
 	public void assertLocation(int counter)
 	{
 		
 		Assert.assertEquals(counter,4,"Didn't count 4 stores");
-		System.out.println("Assert passed");
+		System.out.println("Assert Location passed");
+	}
+	
+	public void assertInstructions()
+	{
+		Assert.assertTrue(Helper.checkIfElementExists(instructions), "Can't find " +instructions.getText());
+		System.out.println("Assert Instructions passed");
+	}
+	
+	public void assertEnvironment()
+	{
+		Assert.assertTrue(Helper.checkIfElementExists(environment), "Can't find " +environment.getText());
+		System.out.println("Assert Environment passed");
+	}
+	
+	public void assertGoodToKnow()
+	{
+		Assert.assertTrue(Helper.checkIfElementExists(goodToKnow), "Can't find " +goodToKnow.getText());
+		System.out.println("Assert Good To Know passed");
+	}
+	
+	public void assertComponents(int counter, int size)
+	{
+		Assert.assertEquals(counter, size, "Missing parts of "+ components.getText());
+		System.out.println("Assert Components passed");
+	}
+	
+	public void assertSizeAndWeight()
+	{
+		Assert.assertTrue(Helper.checkIfElementExists(sizeAndWeight), "Can't find " +sizeAndWeight.getText());
+	System.out.println("Assert Size And Weight passed");
 	}
 	
 	public static boolean checkForAd(WebDriver driver)
