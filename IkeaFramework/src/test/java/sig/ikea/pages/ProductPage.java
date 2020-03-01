@@ -1,7 +1,5 @@
 package sig.ikea.pages;
 
-import static org.testng.Assert.assertTrue;
-
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.TimeUnit;

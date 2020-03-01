@@ -32,8 +32,6 @@ public class ProductTestEcommerce extends BaseClass
 		
 		productPage.checkForLocation();
 		
-//		productPage.assertLocation(excel.getNumericData("Product",0, 0), excel.getStringData("Product", 0, 1));
-		
 		Helper.captureScreenshot(driver,testName,"04_Location_Status");
 		
 		productPage.productDetails();
