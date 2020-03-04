@@ -61,6 +61,11 @@ public class Helper {
 		wait.until(ExpectedConditions.elementToBeClickable(By.className(className)));
 	}
 	
+	public static void waitForElementBycssSelector(WebDriver driver, String lable, String element, String value)
+	{
+		WebDriverWait wait = new WebDriverWait(driver, 40);
+		wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("lable[element='value']")));
+	}
 
 	public boolean checkForElementID(WebDriver driver, String value)
 	{

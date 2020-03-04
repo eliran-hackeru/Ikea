@@ -109,6 +109,8 @@ public class ProductPage {
 	
 	@FindBy(css="div[ng-bind-html='sprsQuickLinksProduct.product.Series_s || sprsQuickLinksProduct.product.Series_t']") List<WebElement> sprNames;
 	
+	@FindBy(css="div[class='button radius large add_to_wishlist ng-scope']") WebElement addToWishlist;
+	
 	public void searchSKU(String userSKU)
 	{
 		searchButton.click();
@@ -344,5 +346,10 @@ public class ProductPage {
 	public void closeTheAd()
 	{
 		closeAd.click();
+	}
+	
+	public void addProductToWishlist()
+	{
+		addToWishlist.click();
 	}
 }

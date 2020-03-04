@@ -37,6 +37,8 @@ public class ProductTestEcommerce extends BaseClass
 		productPage.productDetails();
 		
 		Helper.captureScreenshot(driver,testName,"05_Product_details");
+		
+		productPage.addProductToWishlist();
 	}
 
 }
