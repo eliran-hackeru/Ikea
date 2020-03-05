@@ -109,7 +109,11 @@ public class ProductPage {
 	
 	@FindBy(css="div[ng-bind-html='sprsQuickLinksProduct.product.Series_s || sprsQuickLinksProduct.product.Series_t']") List<WebElement> sprNames;
 	
-	@FindBy(css="div[class='button radius large add_to_wishlist ng-scope']") WebElement addToWishlist;
+	@FindBy(xpath="/html/body/div[3]/div[2]/div[2]/div/div[1]/div[2]/div/div[4]") WebElement addToWishlist;
+	
+	@FindBy(css="span[ng-click='closeNotification()']") WebElement closeNotification;
+	
+	@FindBy(css="a[data-ng-click='viewWishlist()']") WebElement goToWishlist;
 	
 	public void searchSKU(String userSKU)
 	{
@@ -351,5 +355,16 @@ public class ProductPage {
 	public void addProductToWishlist()
 	{
 		addToWishlist.click();
+		
+		Helper.waitASec();
+		
+		closeNotification.click();
+		
+		Helper.waitASec();
+	}
+	
+	public void moveToWishlist()
+	{
+		goToWishlist.click();
 	}
 }

@@ -97,6 +97,16 @@ public class Helper {
 		}
 	}
 	
+	public static void waitASec()
+	{
+		try {
+			Thread.sleep(500);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			System.out.println(e.getMessage());
+		}
+	}
+	
 	public void handleFrames() 
 	{
 		
