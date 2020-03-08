@@ -43,5 +43,12 @@ public class WishlistTestEcommerce extends BaseClass
 		wishlistpage.checkTotalPrice();
 		
 		wishlistpage.emptyList();
+		
+		productPage.closeTheAd();
+		
+		Helper.scrollUp(driver);
+		Helper.scrollUp(driver);
+		
+		wishlistpage.assertList();
 	}	
 }

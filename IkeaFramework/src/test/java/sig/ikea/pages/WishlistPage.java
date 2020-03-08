@@ -33,6 +33,8 @@ WebDriver driver;
 	
 	@FindBy(xpath="//span[.='מחק הכל']") WebElement deleteAll;
 	
+	@FindBy (className="wishlis_subtitle") WebElement subTitle;
+	
 	public void checkProductsListInfo(int i)
 	{
 		int j = i+1;
@@ -60,7 +62,11 @@ WebDriver driver;
 	public void emptyList()
 	{
 		deleteAll.click();
-		for (int i=0; i<10; i++)
-			Helper.waitASec();
+	}
+	
+	public void assertList()
+	{
+		Assert.assertEquals(subTitle.getText(), "הרשימה שלך ריקה", "the wishlist isn't empty");
+		System.out.println("Assert empty list passed");
 	}
 }
