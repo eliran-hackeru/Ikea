@@ -360,7 +360,10 @@ public class ProductPage {
 		addToWishlist.click();
 		
 		Helper.waitASec();
-		
+	}
+	
+	public void closeAddProduct()
+	{
 		closeNotification.click();
 		
 		Helper.waitASec();

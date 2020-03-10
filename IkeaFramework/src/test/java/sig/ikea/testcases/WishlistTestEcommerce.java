@@ -32,6 +32,10 @@ public class WishlistTestEcommerce extends BaseClass
 			productPage.searchSKU(excel.getNumericData("Product",i, 0));
 			
 			productPage.addProductToWishlist();
+			
+			Helper.captureScreenshot(driver,testName,"Adding product #"+(i+1));
+			
+			productPage.closeAddProduct();
 		}
 		
 		productPage.moveToWishlist();
