@@ -13,6 +13,10 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import java.awt.AWTException;
+import java.awt.Robot;
+import java.awt.event.InputEvent;
+import java.awt.event.KeyEvent;
 
 public class Helper {
 	
@@ -67,7 +71,7 @@ public class Helper {
 		wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("lable[element='value']")));
 	}
 
-	public boolean checkForElementID(WebDriver driver, String value)
+	public static boolean checkForElementID(WebDriver driver, String value)
 	{
 		if (driver.findElements(By.id(value)).size() != 0)
 		{
@@ -88,7 +92,7 @@ public class Helper {
 	public static void scrollUp(WebDriver driver)
 	{
 		JavascriptExecutor js = (JavascriptExecutor) driver;
-		js.executeScript("window.scrollBy(0,-250)");
+		js.executeScript("window.scrollBy(0,document.body.scrollHeight)");
 	}
 	
 	public static boolean checkIfElementExists(WebElement element)
@@ -112,7 +116,11 @@ public class Helper {
 			System.out.println(e.getMessage());
 		}
 	}
-	
+	public static void robotScrollUp() throws AWTException
+	{
+		Robot robot = new Robot();
+		robot.keyPress(KeyEvent.VK_UP);
+	}
 	public void handleFrames() 
 	{
 		

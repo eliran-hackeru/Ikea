@@ -349,7 +349,10 @@ public class ProductPage {
 	
 	public void closeTheAd()
 	{
-		closeAd.click();
+		if (Helper.checkForElementID(driver, "ZA_CANVAS_640983_CLICKABLE_BIMAGE_2"))
+		{
+			closeAd.click();
+		}
 	}
 	
 	public void addProductToWishlist()

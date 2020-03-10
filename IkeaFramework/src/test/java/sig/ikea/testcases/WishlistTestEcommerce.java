@@ -2,6 +2,7 @@ package sig.ikea.testcases;
 
 import org.testng.annotations.Test;
 
+import java.awt.AWTException;
 import java.io.IOException;
 
 import org.openqa.selenium.support.PageFactory;
@@ -16,7 +17,7 @@ import sig.ikea.pages.BaseClass;
 public class WishlistTestEcommerce extends BaseClass
 {
 	@Test
-	public void wishlistApp() throws IOException
+	public void wishlistApp() throws IOException, AWTException
 	{
 //		To get the class name: String testName = this.getClass().getSimpleName();
 		
@@ -44,10 +45,19 @@ public class WishlistTestEcommerce extends BaseClass
 		
 		wishlistpage.emptyList();
 		
+		Helper.robotScrollUp();
+		Helper.robotScrollUp();
+		Helper.robotScrollUp();
+		
+/*		Helper.scrollUp(driver);
+		Helper.scrollUp(driver);
+		Helper.scrollUp(driver);
+*/		
 		productPage.closeTheAd();
 		
-		Helper.scrollUp(driver);
-		Helper.scrollUp(driver);
+		Helper.waitASec();
+		Helper.waitASec();
+		Helper.waitASec();
 		
 		wishlistpage.assertList();
 	}	
