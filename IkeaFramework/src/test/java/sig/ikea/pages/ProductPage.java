@@ -336,7 +336,7 @@ public class ProductPage {
 	public void assertSizeAndWeight()
 	{
 		Assert.assertTrue(Helper.checkIfElementExists(sizeAndWeight), "Can't find " +sizeAndWeight.getText());
-	System.out.println("Assert Size And Weight passed");
+		System.out.println("Assert Size And Weight passed");
 	}
 	
 	public static boolean checkForAd(WebDriver driver)
@@ -372,5 +372,11 @@ public class ProductPage {
 	public void moveToWishlist()
 	{
 		goToWishlist.click();
+	}
+	
+	public void assertAddProduct()
+	{
+		Assert.assertTrue(Helper.checkIfElementExists(closeNotification),"Can't add product " + SKU.getText() + " "+ series.getText());
+		System.out.println("Assert Add Product " + SKU.getText() + " "+ series.getText() +" passed");
 	}
 }

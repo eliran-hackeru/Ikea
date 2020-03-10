@@ -7,12 +7,10 @@ import java.io.IOException;
 
 import org.openqa.selenium.support.PageFactory;
 import sig.ikea.pages.BaseClass;
-import sig.ikea.pages.LoginPage;
 import sig.ikea.pages.ProductPage;
 import sig.ikea.pages.WishlistPage;
 import sig.ikea.utility.ExcelDataProvider;
 import sig.ikea.utility.Helper;
-import sig.ikea.pages.BaseClass;
 
 public class WishlistTestEcommerce extends BaseClass
 {
@@ -35,6 +33,8 @@ public class WishlistTestEcommerce extends BaseClass
 			
 			Helper.captureScreenshot(driver,testName,"Adding product #"+(i+1));
 			
+			productPage.assertAddProduct();
+			
 			productPage.closeAddProduct();
 		}
 		
@@ -52,11 +52,7 @@ public class WishlistTestEcommerce extends BaseClass
 		Helper.robotScrollUp();
 		Helper.robotScrollUp();
 		Helper.robotScrollUp();
-		
-/*		Helper.scrollUp(driver);
-		Helper.scrollUp(driver);
-		Helper.scrollUp(driver);
-*/		
+				
 		productPage.closeTheAd();
 		
 		Helper.waitASec();
