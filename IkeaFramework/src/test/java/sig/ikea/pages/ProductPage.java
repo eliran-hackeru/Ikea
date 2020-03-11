@@ -189,6 +189,8 @@ public class ProductPage {
 		
 		checkComponents();
 		
+		closeTheAd();
+		
 		checkSizeAndWeight();
 		
 		try {

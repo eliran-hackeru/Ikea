@@ -27,3 +27,6 @@
 [0309/112551.349:ERROR:file_io.cc(134)] WriteFile: The pipe is being closed. (0xE8)
 [0310/164420.112:ERROR:file_io.cc(134)] WriteFile: The pipe is being closed. (0xE8)
 [0310/180417.438:ERROR:file_io.cc(134)] WriteFile: The pipe is being closed. (0xE8)
+[0311/104122.838:ERROR:file_io.cc(134)] WriteFile: The pipe is being closed. (0xE8)
+[0311/104546.219:ERROR:file_io.cc(134)] WriteFile: The pipe is being closed. (0xE8)
+[0311/174820.078:ERROR:file_io.cc(134)] WriteFile: The pipe is being closed. (0xE8)

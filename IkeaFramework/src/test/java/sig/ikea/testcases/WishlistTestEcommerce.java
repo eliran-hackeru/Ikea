@@ -52,6 +52,7 @@ public class WishlistTestEcommerce extends BaseClass
 		Helper.robotScrollUp();
 		Helper.robotScrollUp();
 		Helper.robotScrollUp();
+		Helper.robotScrollUp();
 				
 		productPage.closeTheAd();
 		
